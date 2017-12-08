@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Hello!</title>
+    </head>
+    <body>
+        <div th:if="!${param.name}">
+            <p>Hello, hoo-man!</p>
+        </div>
+        <div th:if="${param.name}">
+            <div th:if="${#strings.isEmpty(param.name[0])}">
+                <p>Hello, hoo-man!</p>
+            </div>
+            <div th:if="!${#strings.isEmpty(param.name[0])}">
+                <p th:text="${'Hello, ' + param.name[0] + '!'}" />
+            </div>
+        </div>
+    </body>
+</html>
